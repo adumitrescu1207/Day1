@@ -20,6 +20,12 @@ namespace Day1.Controllers
             return Ok(_drinkService.GetAll());
         }
 
+        [HttpGet("GetDrink/{id}")]
+        public IActionResult GetById(int id)
+        {
+            return Ok(_drinkService.GetById(id));
+        }
+
         [HttpPost("PostDrinks")]
         public IActionResult Post(Drink drink)
         {
@@ -58,9 +64,11 @@ namespace Day1.Controllers
         }
 
         [HttpGet("Pages")]
-        public IActionResult boo(int page, int noelements)
+        public IActionResult Pages(int page, int noelements)
         {
             return Ok(_drinkService.returnPage(page - 1, noelements));
         }
+
+
     }
 }
